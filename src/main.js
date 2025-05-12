@@ -8,15 +8,19 @@ import TileLayer from "ol/layer/Tile.js";
 import VectorLayer from "ol/layer/Vector.js";
 import { fromLonLat } from "ol/proj.js";
 import { getVectorContext } from "ol/render.js";
-import OSM from "ol/source/OSM.js";
 import VectorSource from "ol/source/Vector.js";
 import CircleStyle from "ol/style/Circle.js";
 import Stroke from "ol/style/Stroke.js";
 import Style from "ol/style/Style.js";
 import Fill from "ol/style/Fill.js";
+import XYZ from "ol/source/XYZ.js";
 
 const tileLayer = new TileLayer({
-  source: new OSM({
+  source: new XYZ({
+    url: "https://{a-c}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+    attributions:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    maxZoom: 20,
     wrapX: false,
   }),
 });
